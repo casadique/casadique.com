@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | CA Sadique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">CA</span>
+      <span class="brand-text"><strong data-bind="name">CA Sadique</strong><small data-bind="firm"></small></span>
+    </a>
+    <nav class="nav-links nav-links-static">
+      <a href="index.html#blogs">← All blogs</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <article class="container post" id="post"></article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <p class="disclaimer" data-bind="disclaimer"></p>
+    <p>© <span id="year"></span> <span data-bind="firm"></span>, Chartered Accountants.</p>
+  </div>
+</footer>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

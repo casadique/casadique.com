@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CA Sadique | Muhammad &amp; Associates, Chartered Accountants, Payyanur</title>
+  <meta name="description" content="CA Sadique, FCA – Muhammad & Associates, Chartered Accountants, Payyanur. Income tax, NRI taxation, GST, audit, corporate compliance. Free videos, blogs and notes for students and businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="#top" class="brand">
+      <span class="brand-mark">CA</span>
+      <span class="brand-text">
+        <strong data-bind="name">CA Sadique</strong>
+        <small data-bind="firm"></small>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#videos">Videos</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#notes">Notes</a>
+      <a href="#contact" class="btn btn-small">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media">
+      <img data-bind-src="photo" alt="CA Sadique" onerror="this.parentNode.style.display='none'">
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow" data-bind="tagline">Chartered Accountant in Practice</p>
+      <h1 data-bind="headline">Clear advice on tax, audit and compliance.</h1>
+      <p class="lead" data-bind="intro"></p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn">Book a consultation</a>
+        <a href="#videos" class="btn btn-outline">Free learning resources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <section class="stats-band">
+    <div class="container stats" id="stats"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Who am I?</h2>
+        <a href="#contact" class="btn btn-dark">Get in touch</a>
+      </div>
+      <div>
+        <div class="about-text" data-bind-html="about"></div>
+        <ul class="credentials" id="credentials"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section section-dark">
+    <div class="container">
+      <p class="eyebrow center">How I can help you</p>
+      <h2 class="center">What do you need?</h2>
+      <div class="services-grid" id="services-grid"></div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Learn</p>
+          <h2>Videos</h2>
+        </div>
+        <a class="btn btn-dark btn-small" data-bind-href="youtube" target="_blank" rel="noopener">Visit YouTube channel →</a>
+      </div>
+      <div class="filters" data-filter-for="videos"></div>
+      <div class="video-grid" id="video-grid"></div>
+    </div>
+  </section>
+
+  <!-- BLOGS -->
+  <section id="blogs" class="section section-dark">
+    <div class="container">
+      <p class="eyebrow">Read</p>
+      <h2>Blogs &amp; articles</h2>
+      <div class="filters" data-filter-for="blogs"></div>
+      <div class="blog-grid" id="blog-grid"></div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section id="notes" class="section">
+    <div class="container">
+      <p class="eyebrow">Download</p>
+      <h2>Notes &amp; resources</h2>
+      <p class="muted">Free study notes for students and ready reckoners for the business community.</p>
+      <div class="notes-toolbar">
+        <input type="search" id="notes-search" placeholder="Search notes…" aria-label="Search notes">
+      </div>
+      <div class="filters" data-filter-for="notes"></div>
+      <div class="notes-list" id="notes-list"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-black">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>Contact</h2>
+        <p class="on-dark">For consultations and professional engagements, reach out using any of the options here.</p>
+        <div class="hero-actions">
+          <a class="btn" id="whatsapp-btn" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="btn btn-outline" id="email-btn">Send an email</a>
+        </div>
+      </div>
+      <ul class="contact-list" id="contact-list"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="#top" class="brand">
+        <span class="brand-mark">CA</span>
+        <span class="brand-text"><strong data-bind="name">CA Sadique</strong><small data-bind="firm"></small></span>
+      </a>
+      <div class="socials" id="socials"></div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="#videos">Videos</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#notes">Notes</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p class="disclaimer" data-bind="disclaimer"></p>
+    <p>© <span id="year"></span> <span data-bind="firm"></span>, Chartered Accountants. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
