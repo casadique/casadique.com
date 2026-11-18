@@ -47,7 +47,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -80,16 +80,21 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-media">
-      <img data-bind-src="photo" alt="CA Sadique at his office" onerror="this.parentNode.style.display='none'">
-    </div>
-    <div class="container hero-inner">
-      <p class="eyebrow" data-bind="tagline">Chartered Accountant in Practice</p>
-      <h1 data-bind="headline">Clear advice on tax, audit and compliance.</h1>
-      <p class="lead" data-bind="intro"></p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn">Get in touch</a>
-        <a href="#blogs" id="learn-btn" class="btn btn-outline">Free learning resources</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" data-bind="tagline">Chartered Accountant in Practice</p>
+        <h1 data-bind-html="headline">Clear advice on tax, audit and compliance.</h1>
+        <p class="lead" data-bind="intro"></p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Get in touch</a>
+          <a href="#blogs" id="learn-btn" class="btn btn-outline">Free learning resources</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <div class="portrait-frame">
+          <img data-bind-src="photo" alt="CA Sadique at his office" onerror="this.closest('.portrait').style.display='none'">
+        </div>
+        <div class="portrait-badge" id="hero-badge"></div>
       </div>
     </div>
   </section>
@@ -98,13 +103,14 @@
   <section class="stats-band">
     <div class="container stats" id="stats"></div>
   </section>
+  <div class="trust" aria-label="Credentials"><div class="trust-track" id="trust"></div></div>
 
   <!-- ABOUT -->
   <section id="about" class="section alt">
     <div class="container two-col">
       <div>
         <p class="eyebrow">About</p>
-        <h2>Who am I?</h2>
+        <h2>Who am <em>I?</em></h2>
         <a href="#contact" class="btn btn-dark">Get in touch</a>
       </div>
       <div>
@@ -118,7 +124,7 @@
   <section id="services" class="section alt section-dark">
     <div class="container">
       <p class="eyebrow center">How I can help you</p>
-      <h2 class="center">What do you need?</h2>
+      <h2 class="center">What do you <em>need?</em></h2>
       <div class="services-grid" id="services-grid"></div>
     </div>
   </section>
@@ -129,7 +135,7 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Learn</p>
-          <h2>Videos</h2>
+          <h2>Free <em>videos</em></h2>
         </div>
         <a class="btn btn-dark btn-small" data-bind-href="youtube" target="_blank" rel="noopener">Visit YouTube channel →</a>
       </div>
@@ -142,7 +148,7 @@
   <section id="blogs" class="section alt section-dark">
     <div class="container">
       <p class="eyebrow">Read</p>
-      <h2>Blogs &amp; articles</h2>
+      <h2>Blogs &amp; <em>articles</em></h2>
       <div class="filters" data-filter-for="blogs"></div>
       <div class="blog-grid" id="blog-grid"></div>
     </div>
@@ -152,7 +158,7 @@
   <section id="notes" class="section alt">
     <div class="container">
       <p class="eyebrow">Download</p>
-      <h2>Notes &amp; resources</h2>
+      <h2>Notes &amp; <em>resources</em></h2>
       <p class="muted">Free study notes for students and ready reckoners for the business community.</p>
       <div class="notes-toolbar">
         <input type="search" id="notes-search" placeholder="Search notes…" aria-label="Search notes">
@@ -167,7 +173,7 @@
     <div class="container two-col contact-grid">
       <div>
         <p class="eyebrow">Get in touch</p>
-        <h2>Contact</h2>
+        <h2>Let's <em>talk</em></h2>
         <p class="on-dark">For consultations and professional engagements, reach out using any of the options here, or send a message with the form.</p>
         <ul class="contact-list" id="contact-list"></ul>
         <div class="hero-actions">

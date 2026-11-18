@@ -52,15 +52,44 @@
 
   // ---- Stats & credentials
   const stats = $("#stats");
-  if (stats) stats.innerHTML = (P.stats || []).map((s) => `<div><div class="stat-num">${esc(s.value)}</div><div class="stat-label">${esc(s.label)}</div></div>`).join("");
+  if (stats) stats.innerHTML = (P.stats || []).map((s) => `<div><div class="stat-num" data-count="${esc(s.value)}">${esc(s.value)}</div><div class="stat-label">${esc(s.label)}</div></div>`).join("");
   const cred = $("#credentials");
   if (cred) cred.innerHTML = (P.credentials || []).map((c) => `<li>${esc(c)}</li>`).join("");
 
-  // ---- Services
+  // ---- Hero badge + trust strip
+  const badge = $("#hero-badge");
+  if (badge && (P.stats || [])[0]) badge.innerHTML = `<strong>${esc(P.stats[0].value)}</strong><span>${esc(P.stats[0].label)}<br>Fellow member, ICAI</span>`;
+  else if (badge) badge.remove();
+  const trust = $("#trust");
+  if (trust && (P.trust || []).length) {
+    const row = P.trust.map((t) => `<span>${esc(t)}</span>`).join("");
+    trust.innerHTML = row + row + row + row; // repeated for a seamless loop
+  } else if (trust) trust.parentNode.remove();
+
+  // ---- Line icons
+  const ICONS = {
+    "income-tax": '<path d="M5 3h14v18l-2.5-1.5L14 21l-2-1.5L10 21l-2.5-1.5L5 21z"/><path d="M9 8h6M9 12h6M9 16h4"/>',
+    "nri-taxation": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/>',
+    "gst": '<path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
+    "audit-assurance": '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M8.5 11l2 2 3.5-3.5"/>',
+    "corporate-compliance": '<path d="M4 21V5l8-2v18M12 8l8 2v11M3 21h18M8 8h.01M8 12h.01M8 16h.01M16 13h.01M16 17h.01"/>',
+    "accounting-bookkeeping": '<path d="M3 3v18h18"/><path d="M7 16v-4M12 16V8M17 16v-7"/>',
+    "startup-advisory": '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+    "accounts-taxation-training": '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/>',
+    phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+    pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
+  };
+  const svg = (k) => ICONS[k] ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]}</svg>` : "";
+
+  // ---- Services (bento: 1st card large, 2nd card wide)
   const sg = $("#services-grid");
-  if (sg) sg.innerHTML = (S.services || []).map((s) => `
-    <div class="service">
-      <div class="service-icon">${esc(s.icon)}</div>
+  if (sg) sg.innerHTML = (S.services || []).map((s, i) => `
+    <div class="service${i === 0 ? " xl" : i === 1 ? " wide" : ""}">
+      <div class="ico">${svg(s.slug) || esc(s.icon)}</div>
       <h3>${esc(s.title)}</h3>
       <p>${esc(s.description)}</p>
       ${s.points ? `<ul>${s.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>` : ""}
@@ -199,10 +228,10 @@
   const cl = $("#contact-list");
   if (cl) {
     const rows = [
-      C.phone && ["📞", "Phone", `<a href="tel:${esc(C.phone.replace(/\s/g, ""))}">${esc(C.phone)}</a>`],
-      C.email && ["✉️", "Email", `<a href="mailto:${esc(C.email)}">${esc(C.email)}</a>`],
-      C.address && ["📍", "Office", C.mapLink ? `<a href="${esc(C.mapLink)}" target="_blank" rel="noopener">${esc(C.address)}</a>` : esc(C.address)],
-      C.hours && ["🕘", "Office hours", esc(C.hours)],
+      C.phone && [svg("phone"), "Phone", `<a href="tel:${esc(C.phone.replace(/\s/g, ""))}">${esc(C.phone)}</a>`],
+      C.email && [svg("mail"), "Email", `<a href="mailto:${esc(C.email)}">${esc(C.email)}</a>`],
+      C.address && [svg("pin"), "Office", C.mapLink ? `<a href="${esc(C.mapLink)}" target="_blank" rel="noopener">${esc(C.address)}</a>` : esc(C.address)],
+      C.hours && [svg("clock"), "Office hours", esc(C.hours)],
     ].filter(Boolean);
     cl.innerHTML = rows.map(([i, l, v]) => `<li><span class="ci">${i}</span><div><small>${l}</small>${v}</div></li>`).join("");
   }
@@ -220,5 +249,68 @@
       const [label, d] = icons[k] || [k, null];
       return `<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="${esc(label)}" title="${esc(label)}">${d ? `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>` : esc(label[0])}</a>`;
     }).join("");
+  }
+
+  // ---- Light / dark theme toggle (remembers the visitor's choice)
+  const root = document.documentElement;
+  const store = { get() { try { return localStorage.getItem("theme"); } catch (e) { return null; } },
+                  set(v) { try { localStorage.setItem("theme", v); } catch (e) {} } };
+  const saved = store.get();
+  if (saved === "light" || saved === "dark") root.dataset.theme = saved;
+  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const nav = $(".nav");
+  if (nav) {
+    const right = document.createElement("div");
+    right.className = "nav-right";
+    const tbtn = document.createElement("button");
+    tbtn.className = "theme-toggle";
+    const paint = () => { tbtn.innerHTML = svg(isDark() ? "sun" : "moon"); tbtn.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode"); };
+    paint();
+    tbtn.addEventListener("click", () => { const next = isDark() ? "light" : "dark"; root.dataset.theme = next; store.set(next); paint(); });
+    right.appendChild(tbtn);
+    const nt = $(".nav-toggle", nav);
+    if (nt) right.appendChild(nt);
+    nav.appendChild(right);
+  }
+
+  // ---- Glass header once the page scrolls
+  const header = $(".site-header");
+  const onScroll = () => header && header.classList.toggle("scrolled", scrollY > 12);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  // ---- Call-to-action band above the footer (pages without a contact section)
+  const footer = $(".site-footer");
+  if (footer && !$("#contact")) {
+    const home = $(".brand") ? $(".brand").getAttribute("href").replace(/#.*$/, "") || "index.html" : "index.html";
+    const wrap = document.createElement("section");
+    wrap.className = "cta-wrap";
+    wrap.innerHTML = `<div class="container"><div class="cta-band reveal">
+      <div><h2>Have a tax or compliance <em>question?</em></h2><p>Reach out for a conversation about your requirement.</p></div>
+      <div class="btns">${waNum ? `<a class="btn" href="https://wa.me/${waNum}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
+      <a class="btn alt" href="${esc(home)}#contact">Contact</a></div></div></div>`;
+    footer.parentNode.insertBefore(wrap, footer);
+  }
+
+  // ---- Scroll reveal + stat count-up
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const targets = $$(".section h2, .section .eyebrow, .section .muted, .about-text, .credentials li, .service, .blog-card, .video-card, .note, .contact-list li, .contact-form, .prose > *, .side-card, .stats > div, .portrait, .hero-copy > *");
+  targets.forEach((el, i) => { if (!el.classList.contains("reveal")) el.classList.add("reveal"); el.style.transitionDelay = `${(i % 4) * 70}ms`; });
+  const countUp = (el) => {
+    const m = String(el.dataset.count || "").match(/^(\d+)(.*)$/);
+    if (!m || reduce) return;
+    const end = +m[1], suf = m[2], t0 = performance.now(), dur = 1200;
+    const step = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  const all = $$(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) { all.forEach((el) => el.classList.add("in")); }
+  else {
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("in");
+      $$("[data-count]", e.target).forEach(countUp);
+      io.unobserve(e.target);
+    }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    all.forEach((el) => io.observe(el));
   }
 })();
