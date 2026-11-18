@@ -20,7 +20,7 @@ window.SITE = {
 
     about: `
       <p>I am a Fellow member of the Institute of Chartered Accountants of India (ICAI) and lead
-      <strong>Muhammad &amp; Associates, Chartered Accountants</strong>, based in Payyanur, Kannur.</p>
+      <a href="https://muhammadandassociates.com" target="_blank" rel="noopener"><strong>Muhammad &amp; Associates, Chartered Accountants</strong></a>, based in Payyanur, Kannur.</p>
       <p>Over 13 years of practice, my work has covered income tax, GST, audit and assurance,
       corporate compliance and NRI taxation for individuals, families and businesses.</p>
       <p>Alongside client work, I teach and write regularly so that students and business owners

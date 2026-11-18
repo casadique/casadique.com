@@ -257,3 +257,5 @@ p { margin: 0 0 1em; }
   .contact-form .btn { justify-self: stretch; text-align: center; }
   .wa-float { right: 14px; bottom: 14px; width: 52px; height: 52px; }
 }
+.about-text a { color: var(--ink); text-decoration-color: var(--yellow); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.about-text a:hover { color: #000; background: rgba(255,200,0,.25); }
