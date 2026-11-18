@@ -184,21 +184,22 @@
 
       <form class="contact-form" action="https://formsubmit.co/info@casadique.com" method="POST">
         <h3>Send a message</h3>
+        <p class="form-sub">Share a few details and we will get back to you.</p>
         <input type="hidden" name="_subject" value="New enquiry from casadique.com">
         <input type="hidden" name="_next" value="https://casadique.com/thank-you.html">
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label>Your name *<input type="text" name="name" required maxlength="100"></label>
+        <label>Your name *<input type="text" name="name" required maxlength="100" placeholder="e.g. Anil Kumar" autocomplete="name"></label>
         <div class="form-row">
-          <label>Phone / WhatsApp *<input type="tel" name="phone" required maxlength="20"></label>
-          <label>Email<input type="email" name="email" maxlength="120"></label>
+          <label>Phone / WhatsApp *<input type="tel" name="phone" required maxlength="20" placeholder="+91 98xxx xxxxx" autocomplete="tel"></label>
+          <label>Email<input type="email" name="email" maxlength="120" placeholder="you@example.com" autocomplete="email"></label>
         </div>
         <label>Topic
           <select name="topic" id="topic-select">
             <option value="General enquiry">General enquiry</option>
           </select>
         </label>
-        <label>Message *<textarea name="message" rows="4" required maxlength="2000"></textarea></label>
+        <label>Message *<textarea name="message" rows="4" required maxlength="2000" placeholder="Briefly describe what you need help with"></textarea></label>
         <label class="consent"><input type="checkbox" name="consent" value="Agreed to privacy policy" required>
           <span>I agree that my details may be used to respond to this enquiry, as described in the <a href="privacy.html">Privacy Policy</a>.</span></label>
         <button type="submit" class="btn">Send message</button>
