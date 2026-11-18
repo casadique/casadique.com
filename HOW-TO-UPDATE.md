@@ -96,3 +96,12 @@ The design deliberately leaves out testimonials and client sections for this rea
 - **Professional email** (info@casadique.com): GoDaddy/Microsoft 365 or Zoho Mail (Zoho has a free plan). Add their MX records in GoDaddy DNS.
 - **Google Search Console**: submit casadique.com so Google lists it faster.
 - **Google Business Profile**: helps local clients find your office on Maps.
+
+---
+
+## Other pages
+- **Service pages** (`services/*.html`): one page per service. Edit the text directly in each file if needed.
+- **Privacy Policy** (`privacy.html`) and **Thank-you page** (`thank-you.html`, shown after the contact form is sent).
+- **Contact form**: messages go to info@casadique.com through FormSubmit (free). The very first message triggers an activation email from FormSubmit to info@casadique.com. Click the link in it once to start receiving messages.
+- **Videos / Blogs / Notes** sections hide themselves automatically until you add at least one item in `js/content.js`.
+- `sitemap.xml` and `robots.txt` help Google find the pages. Add new page addresses to `sitemap.xml` when you create them.
