@@ -29,7 +29,7 @@
   }
   // keep light/dark sections alternating after hiding
   $$("main > section.section.alt").filter((s) => s.style.display !== "none")
-    .forEach((s, i) => s.classList.toggle("section-dark", i % 2 === 1));
+    .forEach((s, i) => s.classList.toggle("tint", i % 2 === 1));
 
   // ---- Floating WhatsApp button (every page)
   const waNum = ((P.contact || {}).whatsapp || "").replace(/\D/g, "");
@@ -275,6 +275,7 @@
 
   // ---- Glass header once the page scrolls
   const header = $(".site-header");
+  if (header && !$("main > .hero, main > .page-hero")) header.classList.add("solid");
   const onScroll = () => header && header.classList.toggle("scrolled", scrollY > 12);
   addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
@@ -293,7 +294,7 @@
 
   // ---- Scroll reveal + stat count-up
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const targets = $$(".section h2, .section .eyebrow, .section .muted, .about-text, .credentials li, .service, .blog-card, .video-card, .note, .contact-list li, .contact-form, .prose > *, .side-card, .stats > div, .portrait, .hero-copy > *");
+  const targets = $$(".section h2, .section .eyebrow, .section .muted, .about-text, .credentials li, .service, .blog-card, .video-card, .note, .contact-list li, .contact-form, .prose > *, .side-card, .stats > div, .hero-copy > *, .hero-side > *");
   targets.forEach((el, i) => { if (!el.classList.contains("reveal")) el.classList.add("reveal"); el.style.transitionDelay = `${(i % 4) * 70}ms`; });
   const countUp = (el) => {
     const m = String(el.dataset.count || "").match(/^(\d+)(.*)$/);

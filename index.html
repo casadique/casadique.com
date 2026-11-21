@@ -47,7 +47,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -80,21 +80,20 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
+    <div class="hero-media">
+      <img data-bind-src="photo" alt="CA Sadique at his office" onerror="this.parentNode.style.display='none'">
+    </div>
+    <div class="container hero-inner">
       <div class="hero-copy">
         <p class="eyebrow" data-bind="tagline">Chartered Accountant in Practice</p>
         <h1 data-bind-html="headline">Clear advice on tax, audit and compliance.</h1>
+      </div>
+      <div class="hero-side">
         <p class="lead" data-bind="intro"></p>
         <div class="hero-actions">
           <a href="#contact" class="btn">Get in touch</a>
-          <a href="#blogs" id="learn-btn" class="btn btn-outline">Free learning resources</a>
+          <a href="#blogs" id="learn-btn" class="btn btn-outline">Free resources</a>
         </div>
-      </div>
-      <div class="portrait">
-        <div class="portrait-frame">
-          <img data-bind-src="photo" alt="CA Sadique at his office" onerror="this.closest('.portrait').style.display='none'">
-        </div>
-        <div class="portrait-badge" id="hero-badge"></div>
       </div>
     </div>
   </section>
@@ -121,7 +120,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="section alt section-dark">
+  <section id="services" class="section alt">
     <div class="container">
       <p class="eyebrow center">How I can help you</p>
       <h2 class="center">What do you <em>need?</em></h2>
@@ -145,7 +144,7 @@
   </section>
 
   <!-- BLOGS -->
-  <section id="blogs" class="section alt section-dark">
+  <section id="blogs" class="section alt">
     <div class="container">
       <p class="eyebrow">Read</p>
       <h2>Blogs &amp; <em>articles</em></h2>
