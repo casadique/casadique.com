@@ -157,15 +157,24 @@
   if (bg) {
     const render = (cat) => {
       const list = blogs.filter((b) => cat === "All" || b.category === cat);
-      bg.innerHTML = list.length ? list.map((b) => {
+      bg.innerHTML = list.length ? list.map((b, i) => {
         const href = b.link ? b.link : `post.html?id=${encodeURIComponent(b.id)}`;
         const ext = b.link ? ` target="_blank" rel="noopener"` : "";
-        return `<a class="blog-card" href="${esc(href)}"${ext}>
-          ${b.category ? `<span class="tag" style="align-self:flex-start">${esc(b.category)}</span>` : ""}
-          <h3>${esc(b.title)}</h3>
-          <p>${esc(b.summary)}</p>
-          <div class="blog-meta">${fmtDate(b.date)}</div>
-          <span class="read-more">Read article →</span>
+        const words = String(b.body || "").replace(/<[^>]+>/g, " ").split(/s+/).filter(Boolean).length;
+        const read = b.link ? "External article" : `${Math.max(1, Math.round(words / 200))} min read`;
+        const featured = i === 0 && list.length > 1 && cat === "All";
+        return `<a class="blog-card${featured ? " featured" : ""}" href="${esc(href)}"${ext}>
+          <div class="blog-cover cover-${i % 3}">
+            <span class="cover-kicker">${featured ? "Latest article" : "Article"}</span>
+            <span class="cover-topic">${esc(b.category || "Insights")}</span>
+            <span class="cover-brand">casadique.com</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">${fmtDate(b.date)}<span>·</span>${read}</div>
+            <h3>${esc(b.title)}</h3>
+            <p>${esc(b.summary)}</p>
+            <span class="read-more">${b.link ? "Read on external site" : "Read article"} <i>→</i></span>
+          </div>
         </a>`;
       }).join("") : `<p class="empty">No articles in this category yet.</p>`;
     };
