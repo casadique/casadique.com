@@ -56,6 +56,10 @@
   const cred = $("#credentials");
   if (cred) cred.innerHTML = (P.credentials || []).map((c) => `<li>${esc(c)}</li>`).join("");
 
+  // ---- Hero service tags
+  const htags = $("#hero-tags");
+  if (htags) htags.innerHTML = (S.services || []).slice(0, 4).map((s) => `<li>${esc(s.title)}</li>`).join("");
+
   // ---- Hero badge + trust strip
   const badge = $("#hero-badge");
   if (badge && (P.stats || [])[0]) badge.innerHTML = `<strong>${esc(P.stats[0].value)}</strong><span>${esc(P.stats[0].label)}<br>Fellow member, ICAI</span>`;
@@ -303,7 +307,7 @@
 
   // ---- Scroll reveal + stat count-up
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const targets = $$(".section h2, .section .eyebrow, .section .muted, .about-text, .credentials li, .service, .blog-card, .video-card, .note, .contact-list li, .contact-form, .prose > *, .side-card, .stats > div, .hero-copy > *, .hero-side > *");
+  const targets = $$(".section h2, .section .eyebrow, .section .muted, .about-text, .credentials li, .service, .blog-card, .video-card, .note, .contact-list li, .contact-form, .prose > *, .side-card, .stats > div, .hero-copy > *, .hero-visual");
   targets.forEach((el, i) => { if (!el.classList.contains("reveal")) el.classList.add("reveal"); el.style.transitionDelay = `${(i % 4) * 70}ms`; });
   const countUp = (el) => {
     const m = String(el.dataset.count || "").match(/^(\d+)(.*)$/);

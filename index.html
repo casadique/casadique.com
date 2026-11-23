@@ -55,9 +55,9 @@
 <header class="site-header">
   <div class="container nav">
     <a href="#top" class="brand">
-      <span class="brand-mark">CA</span>
+      <span class="brand-mark" aria-hidden="true">S</span>
       <span class="brand-text">
-        <strong data-bind="name">CA Sadique</strong>
+        <strong><b>CA</b>Sadique<i>.</i></strong>
         <small data-bind="firm"></small>
       </span>
     </a>
@@ -80,20 +80,26 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-media">
-      <img data-bind-src="photo" alt="CA Sadique at his office" onerror="this.parentNode.style.display='none'">
-    </div>
     <div class="container hero-inner">
       <div class="hero-copy">
         <p class="eyebrow" data-bind="tagline">Chartered Accountant in Practice</p>
         <h1 data-bind-html="headline">Clear advice on tax, audit and compliance.</h1>
-      </div>
-      <div class="hero-side">
         <p class="lead" data-bind="intro"></p>
         <div class="hero-actions">
           <a href="#contact" class="btn">Get in touch</a>
           <a href="#blogs" id="learn-btn" class="btn btn-outline">Free resources</a>
         </div>
+        <ul class="hero-tags" id="hero-tags"></ul>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo">
+          <img data-bind-src="photo" alt="CA Sadique at his office" onerror="this.closest('.hero-visual').style.display='none'">
+        </div>
+        <div class="float-card fc-top">
+          <span class="fc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></span>
+          <span><b>ICAI Member</b><small>Fellow Chartered Accountant</small></span>
+        </div>
+        <div class="float-card fc-bottom" id="hero-badge"></div>
       </div>
     </div>
   </section>
@@ -216,8 +222,8 @@
   <div class="container footer-grid">
     <div>
       <a href="#top" class="brand">
-        <span class="brand-mark">CA</span>
-        <span class="brand-text"><strong data-bind="name">CA Sadique</strong><small data-bind="firm"></small></span>
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-text"><strong><b>CA</b>Sadique<i>.</i></strong><small data-bind="firm"></small></span>
       </a>
       <div class="socials" id="socials"></div>
     </div>
