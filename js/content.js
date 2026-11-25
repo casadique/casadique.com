@@ -17,6 +17,7 @@ window.SITE = {
     headline: "Clear advice on <em>tax, audit</em> and compliance.",
     trust: ["Fellow Chartered Accountant (FCA)", "ICAI Membership No. 233487", "13 years in practice", "Payyanur, Kannur", "Income Tax", "NRI Taxation", "GST", "Audit & Assurance", "Corporate Compliance"],
     intro: "For over 13 years I have helped individuals, NRIs, startups and businesses stay compliant and make better financial decisions. I also share free videos, articles and notes for CA students and the business community.",
+    logo: "",                                            // official ICAI CA logo file, e.g. "images/ca-logo.png" ("" shows the S tile)
     photo: "images/profile.jpg",                         // put your photo at images/profile.jpg (or leave "" to hide)
 
     about: `
@@ -50,12 +51,13 @@ window.SITE = {
       hours: "9:30 AM – 5:30 PM",
     },
 
-    social: {                                            // leave "" to hide
+    social: {                                            // shown as icons in the footer; leave "" to hide
       youtube: "https://www.youtube.com/@casadique",
+      whatsapp: "https://wa.me/919744570842",
+      facebook: "https://www.facebook.com/camuhammadandassociates",
+      instagram: "https://www.instagram.com/muhammad_and_associates/",
       linkedin: "",
-      instagram: "",
       telegram: "",
-      facebook: "",
       twitter: "",
     },
 
