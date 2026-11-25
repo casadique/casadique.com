@@ -59,7 +59,7 @@ window.SITE = {
       twitter: "",
     },
 
-    disclaimer: "The content on this website is for general information and educational purposes only and does not constitute professional advice. Please consult a qualified professional before acting on any information. This website is maintained in accordance with the guidelines of the Institute of Chartered Accountants of India.",
+    disclaimer: "",   // footer disclaimer removed at owner's request
   },
 
   /* ---------------- SERVICES ---------------- */
