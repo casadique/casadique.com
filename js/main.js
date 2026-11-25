@@ -60,7 +60,7 @@
   if (P.logo) {
     const css = $('link[rel="stylesheet"][href*="css/style.css"]');
     const base = css ? css.getAttribute("href").replace("css/style.css", "") : "";
-    $(".brand-mark").forEach((mk) => {
+    $$(".brand-mark").forEach((mk) => {
       const img = new Image();
       img.alt = "CA logo";
       img.className = "brand-logo";

@@ -17,7 +17,7 @@ window.SITE = {
     headline: "Clear advice on <em>tax, audit</em> and compliance.",
     trust: ["Fellow Chartered Accountant (FCA)", "ICAI Membership No. 233487", "13 years in practice", "Payyanur, Kannur", "Income Tax", "NRI Taxation", "GST", "Audit & Assurance", "Corporate Compliance"],
     intro: "For over 13 years I have helped individuals, NRIs, startups and businesses stay compliant and make better financial decisions. I also share free videos, articles and notes for CA students and the business community.",
-    logo: "",                                            // official ICAI CA logo file, e.g. "images/ca-logo.png" ("" shows the S tile)
+    logo: "images/ca-logo.jpg",                                            // official ICAI CA logo file, e.g. "images/ca-logo.png" ("" shows the S tile)
     photo: "images/profile.jpg",                         // put your photo at images/profile.jpg (or leave "" to hide)
 
     about: `
