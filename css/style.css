@@ -472,3 +472,24 @@ main > .section:first-child, main.section { padding-top: calc(var(--header-h) + 
 :root[data-theme="dark"] .footer-grid > div > a:not(.brand) { color: rgba(255,255,255,.8); }
 :root[data-theme="dark"] .socials a { background: transparent; color: #fff; border-color: rgba(255,255,255,.2); }
 :root[data-theme="dark"] .footer-bottom p { color: rgba(255,255,255,.55); }
+
+/* ---------- Contact: compact ---------- */
+#contact.section { padding: 64px 0; }
+#contact .contact-grid { align-items: center; gap: 56px; }
+#contact h2 { margin-bottom: .35em; }
+#contact .eyebrow { margin-bottom: 14px; }
+#contact .contact-list { margin: 22px 0 4px; gap: 14px; }
+#contact .contact-list .ci { width: 42px; height: 42px; }
+#contact .hero-actions { margin-top: 24px; }
+.contact-form { padding: 26px 28px; gap: 11px; border-radius: 22px; }
+.contact-form h3 { font-size: 1.6rem; margin: 0; }
+.contact-form .form-sub { margin: -6px 0 2px; font-size: .85rem; }
+.contact-form label { gap: 5px; font-size: .82rem; }
+.contact-form input, .contact-form select, .contact-form textarea { padding: 10px 14px; font-size: .92rem; border-radius: 10px; }
+.contact-form textarea { min-height: 78px; resize: vertical; }
+.contact-form .form-row { gap: 12px; }
+.contact-form .consent { font-size: .78rem; gap: 9px; }
+.contact-form .consent input { width: 17px; height: 17px; }
+.contact-form .btn { padding: 11px 24px; margin-top: 2px; }
+@media (max-width: 900px) { #contact.section { padding: 52px 0; } #contact .contact-grid { gap: 36px; } }
+@media (max-width: 560px) { .contact-form { padding: 22px 18px; } }
